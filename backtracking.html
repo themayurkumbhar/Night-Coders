@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Algorithms - Divide and Conquer</title>
+    <title>Backtracking</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!--[if lte IE 8]>
@@ -26,8 +26,8 @@
                     <a href="#">Features</a>
                     <ul>
                         <li><a href="left-sidebar.html">Blog</a></li>
-                        <li><a href="right-sidebar.html">Online Coding sites</a></li>
-                        <li><a href="no-sidebar.html">Insights</a></li>
+                        <li><a href="onlinecoding.html">Online Coding sites</a></li>
+                        <li><a href="insights.html">Insights</a></li>
                         <li>
                             <a href="#">Algorithms</a>
                             <ul>
@@ -59,103 +59,46 @@
                 <a href="#" class="image fit"><img src="images/pic07.jpg" alt=""/></a>
                 <h3>Backtracking : The algorithm</h3>
                 <p>Backtracking is a general algorithm for finding all (or some) solutions to some computational problems, notably constraint satisfaction problems, that incrementally builds candidates to the solutions, and abandons each partial candidate c ("backtracks") as soon as it determines that c cannot possibly be completed to a valid solution</p>
-                <p>This divide and conquer technique is the basis of efficient algorithms for all kinds of problems,
-                    such as sorting (e.g., quicksort, merge sort), multiplying large numbers (e.g. Karatsuba), syntactic
-                    analysis (e.g., top-down parsers), and computing the discrete Fourier transform (FFTs).
 
-                    Understanding and designing D&C algorithms is a complex skill that requires a good understanding of
-                    the nature of the underlying problem to be solved. As when proving a theorem by induction, it is
-                    often necessary to replace the original problem with a more general or complicated problem in order
-                    to initialize the recursion, and there is no systematic method for finding the proper
-                    generalization. These D&C complications are seen when optimizing the calculation of a Fibonacci
-                    number with efficient double recursion.</p>
-                <h3>Algorithms follows Divide and Conquer strategy:</h3>
-                <p>A typical Divide and Conquer algorithm solves a problem using following three steps.<br/><br>
-                    1. <span style="color:white;font-weight: bold;">Divide:</span> Break the given problem into
-                    subproblems of same type.<br/>
-                    2. <span style="color:white;font-weight: bold;">Conquer:</span> Recursively solve these
-                    subproblems<br/>
-                    3. <span style="color:white;font-weight: bold;">Combine:</span> Appropriately combine the
-                    answers<br/><br/>Following are some standard algorithms that are Divide and Conquer algorithms.</p>
+                <h3>Algorithms follows Backtracking strategy:</h3>
 
                 <ul>
-                    <li style="color:White;font-weight: bold;">Binary Search</li>
-                    <p>is a searching algorithm. In each step, the algorithm compares the input element x with the value
-                        of the middle element in array. If the values match, return the index of middle. Otherwise, if x
-                        is less than the middle element, then the algorithm recurs for left side of middle element, else
-                        recurs for right side of middle element.</p>
+                    <li style="color:White;font-weight: bold;">Rat in maze problem</li>
+                    <p>We have discussed Backtracking and Knight’s tour problem in Set 1. Let us discuss Rat in a Maze as another example problem that can be solved using Backtracking.
 
-                    <code>
+                        A Maze is given as N*N binary matrix of blocks where source block is the upper left most block i.e., maze[0][0] and destination block is lower rightmost block i.e., maze[N-1][N-1]. A rat starts from source and has to reach destination. The rat can move only in two directions: forward and down.
+                        In the maze matrix, 0 means the block is dead end and 1 means the block can be used in the path from source to destination. Note that this is a simple version of the typical Maze problem. For example, a more complex version can be that the rat can move in 4 directions and a more complex version can be with limited number of moves.</p>
 
-                        binary_search(A, target):<br>
-                        lo = 1, hi = size(A)<br>
-                        while lo <= hi:<br>
-                        mid = lo + (hi-lo)/2<br>
-                        if A[mid] == target:<br>
-                        return mid<br>
-                        else if A[mid] < target:<br>
-                        lo = mid+1<br>
-                        else:<br>
-                        hi = mid-1<br>
-                        <br>
-                        // target was not found<br><br></code>
-
-                    <li style="color:White;font-weight: bold;">QuickSort</li>
-                    <p>is a sorting algorithm. The algorithm picks a pivot element, rearranges the array elements in
-                        such a way that all elements smaller than the picked pivot element move to left side of pivot,
-                        and all greater elements move to right side. Finally, the algorithm recursively sorts the
-                        subarrays on left and right of pivot element.</p>
-
-                    <code>
-                        Quicksort(A,p,r) {<br>
-                        if (p < r) {<br>
-                        q <- Partition(A,p,r)<br>
-                        Quicksort(A,p,q)<br>
-                        Quicksort(A,q+1,r)<br>
-                        }<br>
-                        }<br>
-                        <br>
-                        <br>
-
-                        Partition(A,p,r)<br>
-                        x <- A[p]<br>
-                        i <- p-1<br>
-                        j <- r+1<br>
-                        while (True) {<br>
-                        repeat<br>
-                        j <- j-1<br>
-                        until (A[j] <= x)<br>
-                        repeat<br>
-                        i <- i+1<br>
-                        until (A[i] >= x)<br>
-                        if (i A[j]<br>
-                        else<br>
-                        return(j)<br>
-                        }<br>
-                        }<br>
-                        <br></code>
-
-                    <li style="color:White;font-weight: bold;">Merge Sort</li>
-                    <p>is also a sorting algorithm. The algorithm divides the array in two halves, recursively sorts
-                        them and finally merges the two sorted halves</p>
-                    <code>
-                        MergeSort (Array(First..Last))<br>
-                        Begin<br>
-                        If Array contains only one element Then<br>
-                        Return Array<br>
+                    <code><br>If destination is reached<br>
+                        print the solution matrix<br>
                         Else<br>
-                        Middle= ((Last + First)/2) rounded down to the nearest integer<br>
-                        LeftHalfArray = MergeSort(Array(First..Middle))<br>
-                        RightHalfArray = MergeSort(Array(Middle+1..Last))<br>
-                        ResultArray = Merge(LeftHalfArray, RightHalfArray)<br>
-                        Return ResultArray<br>
-                        EndIf<br>
-                        End MergeSort<br><br></code>
+                        a) Mark current cell in solution matrix as 1.<br>
+                        b) Move forward in horizontal direction and recursively check if this<br>
+                        move leads to a solution.<br>
+                        c) If the move chosen in the above step doesn't lead to a solution<br>
+                        then move down and check if  this move leads to a solution.<br>
+                        d) If none of the above solutions work then unmark this cell as 0<br>
+                        (BACKTRACK) and return false.<br><br></code>
 
-                    <li style="color:White;font-weight: bold;"> Strassen’s Algorithm</li>
-                    <p>is an efficient algorithm to multiply two matrices. A simple method to multiply two matrices need
-                        3 nested loops and is O(n^3). Strassen’s algorithm multiplies two matrices in O(n^2.8974)
-                        time.</p>
+                    <li style="color:White;font-weight: bold;">N Queen Problem</li>
+                    <p>We have discussed Knight’s tour and Rat in a Maze problems in Set 1 and Set 2 respectively. Let us discuss N Queen as another example problem that can be solved using Backtracking.
+
+                        The N Queen is the problem of placing N chess queens on an N×N chessboard so that no two queens attack each other. For example, following is a solution for 4 Queen problem.</p>
+
+                    <code><br>1) Start in the leftmost column<br>
+                        2) If all queens are placed<br>
+                        return true<br>
+                        3) Try all rows in the current column.  Do following for every tried row.<br>
+                        a) If the queen can be placed safely in this row then mark this [row,<br>
+                        column] as part of the solution and recursively check if placing<br>
+                        queen here leads to a solution.<br>
+                        b) If placing queen in [row, column] leads to a solution then return<br>
+                        true.<br>
+                        c) If placing queen doesn't lead to a solution then umark this [row,<br>
+                        column] (Backtrack) and go to step (a) to try other rows.<br>
+                        3) If all rows have been tried and nothing worked, return false to trigger<br>
+                        backtracking.<br><br></code>
+
                 </ul>
             </section>
 
