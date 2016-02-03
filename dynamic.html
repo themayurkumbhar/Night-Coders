@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Algorithms - Divide and Conquer</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]>
+    <script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ie9.css"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
+</head>
+<body>
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo"><a href="index.html">Night Coders</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Features</a>
+                    <ul>
+                        <li><a href="left-sidebar.html">Blog</a></li>
+                        <li><a href="right-sidebar.html">Online Coding sites</a></li>
+                        <li><a href="no-sidebar.html">Insights</a></li>
+                        <li>
+                            <a href="#">Algorithms</a>
+                            <ul>
+                                <li><a href="dividnq.html">Divide And Conquer</a></li>
+                                <li><a href="greedy.html">Greedy</a></li>
+                                <li><a href="#">Dynamic Programming</a></li>
+                                <li><a href="backtrack.html">Backtracking</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="elements.html">About Us</a></li>
+                <li><a href="https://github.com/MAYURESH29/Night-Coders" class="button special">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="container">
+            <header class="major">
+                <h2>Dynamic Programming Algorithm</h2>
+                <p>Learn most frequently used algorithm. How the algorithm works and how to implement in your day to day
+                    life.</p>
+            </header>
+
+            <!-- Content -->
+            <section id="content">
+                <a href="#" class="image fit"><img src="images/pic07.jpg" alt=""/></a>
+                <h3>Dynamic Programming : The Algorithm</h3>
+                <p>Many programs in computer science are written to optimize some value; for example, find the shortest
+                    path between two points, find the line that best fits a set of points, or find the smallest set of
+                    objects that satisfies some criteria. There are many strategies that computer scientists use to
+                    solve these problems. One of the goals of this book is to expose you to several different problem
+                    solving strategies. Dynamic programming is one strategy for these types of optimization problems</p>
+                <h3>Algorithms follows Greedy strategy:</h3>
+
+                <ul>
+                    <li style="color:White;font-weight: bold;">Sum of Subset</li>
+                    <p>Given a set of non-negative integers, and a value sum, determine if there is a subset of the
+                        given set with sum equal to given sum.
+                        <br><br>
+                        Examples: set[] = {3, 34, 4, 12, 5, 2}, sum = 9<br>
+                        Output: True //There is a subset (4, 5) with sum 9.
+                        <br><br>
+                        Let isSubSetSum(int set[], int n, int sum) be the function to find whether there is a subset of
+                        set[] with sum equal to sum. n is the number of elements in set[]</p>
+
+                    <code>isSubsetSum(set, n, sum) = isSubsetSum(set, n-1, sum) ||
+                        isSubsetSum(arr, n-1, sum-set[n-1])<br>
+                        Base Cases:<br>
+                        isSubsetSum(set, n, sum) = false, if sum > 0 and n == 0<br>
+                        isSubsetSum(set, n, sum) = true, if sum == 0<br><br></code>
+
+                    <li style="color:White;font-weight: bold;">The Knapsack Problem</li>
+                    <p>e are given a set of
+                        n
+                        items, where each item
+                        i
+                        is
+                        specified by a size
+                        s
+                        i
+                        and a value
+                        v
+                        i
+                        . We are also given a size bound
+                        S
+                        (the size of our knapsack).
+                        The goal is to find the subset of items of maximum total value su
+                        ch that sum of their sizes is at
+                        most
+                        S
+                        (they all fit into the knapsack).
+                        We can solve the knapsack problem in exponential time by tryi
+                        ng all possible subsets. With
+                        Dynamic Programming, we can reduce this to time
+                        O
+                        (
+                        nS
+                        )</p>
+
+                    <code>Value(n,S)<br>
+                        {<br>
+                        if (n == 0) return 0;<br>
+                        if (arr[n][S] != unknown) return arr[n][S];  // <- added this<br>
+                        if (s_n > S) result = Value(n-1,S);<br>
+                        else result = max{v_n + Value(n-1, S-s_n), Value(n-1, S)};<br>
+                        arr[n][S] = result;                          // <- and this<br>
+                        return result;<br>
+                        }<br><br></code>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="http://www.facebook.com/kumbharmayur" class="icon alt fa-facebook"><span
+                    class="label">Facebook</span></a></li>
+            <li><a href="http://www.linkedin.com/mayurkumbhar" class="icon alt fa-linkedin"><span
+                    class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href=https://github.com/MAYURESH29/Night-Coders class="icon alt fa-github"><span
+                    class="label">GitHub</span></a></li>
+            <li><a href="mailto:mayur.kumbhar@outlook.com" class="icon alt fa-envelope"><span class="label">Email</span></a>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Night Coders. All rights reserved.</li>
+            <li>Design: <a href="https://github.com/MAYURESH29">PhoenixStarts</a></li>
+        </ul>
+    </footer>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]>
+<script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
